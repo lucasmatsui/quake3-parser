@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "quake3-parser"
+version = "0.1.0"
+description = "Python Microservice for API."
+authors = ["Lucas Kenzo <lucas.kenzo2203@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/lucasmatsui/quake3-parser"
+
+[information]
+contact = ["quake3-parser", "lucas.kenzo2203@gmail.com"]
+
+[tool.poetry.dependencies]
+asyncpg = "0.27.0"
+async-lru = "1.0.3"
+babel = "2.11.0"
+chardet = "5.1.0"
+fastapi = "0.89.1"
+loguru = "0.7.0"
+psutil = "5.9.5"
+psycopg2-binary = "2.9.5"
+pydantic = "1.10.5"
+python = "3.11.2"
+uvicorn = { extras = ["standard"], version = "0.20.0" }
+
+[tool.poetry.dev-dependencies]
+awscli-local = "0.20"
+bandit = "1.7.4"
+black = "22.12.0"
+debugpy = "1.6.6"
+flake8 = "6.0.0"
+isort = "5.11.4"
+mock = "5.0.1"
+mypy = "0.991"
+pylint = "2.15.10"
+pylint-pydantic = "^0.1.8"
+pytest = "7.2.1"
+pytest-asyncio = "0.20.3"
+pytest-cov = "4.0.0"
+pytest-httpx = "0.21.2"
+pytest-mock = "3.10.0"
+ruff = "0.0.254"
+
+[tool.black]
+line-length = 90
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bandit]
+exclude_dirs = ["venv", ".venv", "env", ".env", "scripts"]
+
+[tool.pylint.format]
+max-line-length = 100
+ignore-docstrings = false
+disable = 'C0114, E0401, R0903, E0611, C0115, E0213, C0116'
+ignore = 'migrations'
+
+[tool.pylint.MASTER]
+load-plugins = "pylint_pydantic"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

@@ -1,0 +1,31 @@
+[run]
+relative_files = True
+concurrency = multiprocessing
+parallel = true
+sigterm = true
+
+branch = true
+source =
+    app/
+
+[paths]
+source =
+    app/
+
+[report]
+show_missing = true
+sort = Miss
+fail_under = 0
+skip_empty = true
+exclude_lines =
+    if __name__ == .__main__.:
+    raise NotImplementedError
+
+omit =
+    */main.py
+    *__init__*
+    *test*
+    */infra/*
+    *app_builder.py*
+    *_out.py
+    *_in.py

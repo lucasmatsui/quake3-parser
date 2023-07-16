@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  quake3-parser:
+    container_name: quake3-parser
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile.dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/usr/src/application
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+    env_file:
+      - .env
+    networks:
+      - quake3-parser-net
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+
+networks:
+  quake3-parser-net:
