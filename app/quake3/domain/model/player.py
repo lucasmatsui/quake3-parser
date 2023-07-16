@@ -79,3 +79,15 @@ class Player:
 
     def get_team(self) -> TeamsEnum:
         return self.team
+
+    def to_dict(self) -> dict:
+        return {
+            "client_id": self.client_id,
+            "ping": self.ping,
+            "score": self.score,
+            "nickname": self.nickname,
+            "character": self.character,
+            "team": self.team.name,
+            "health": self.health,
+            "history_of_weapons": self.history_of_weapons,
+        }

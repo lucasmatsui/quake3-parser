@@ -89,3 +89,11 @@ class Teams:
         self.red.pop(player.get_client_id(), None)
         self.blue.pop(player.get_client_id(), None)
         self.specs.pop(player.get_client_id(), None)
+
+    def to_dict(self) -> dict:
+        return {
+            "free": [player.to_dict() for player in self.free.values()],
+            "red": [player.to_dict() for player in self.red.values()],
+            "blue": [player.to_dict() for player in self.blue.values()],
+            "specs": [player.to_dict() for player in self.specs.values()],
+        }

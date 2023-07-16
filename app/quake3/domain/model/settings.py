@@ -47,3 +47,16 @@ class Settings:
 
     def is_tourney(self) -> bool:
         return self.mode == GameMode.TOURNEY.name
+
+    def to_dict(self) -> dict:
+        return {
+            "mapname": self.mapname,
+            "mode": self.mode,
+            "time_limit": self.time_limit,
+            "frag_limit": self.frag_limit,
+            "capture_limit": self.capture_limit,
+            "max_ping_allowed": self.max_ping_allowed,
+            "min_ping_allowed": self.min_ping_allowed,
+            "max_total_players": self.max_total_players,
+            "max_active_players": self.max_active_players,
+        }
