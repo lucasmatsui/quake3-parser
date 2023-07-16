@@ -17,7 +17,7 @@ class Game:
         ended_match: str,
         settings: Settings,
         teams: Teams,
-        kill_by_means: Dict[str, DeathMeans],
+        kill_by_means: Dict[str, int],
     ):
         self.id = id
         self.total_kills = total_kills
