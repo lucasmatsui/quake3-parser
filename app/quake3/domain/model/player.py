@@ -44,7 +44,7 @@ class Player:
         client_id: int, nickname: str, character: str, health: int, team: TeamsEnum
     ) -> "Player":
         return Player(
-            client_id=int(client_id),
+            client_id=client_id,
             ping=0,
             score=0,
             nickname=nickname,
