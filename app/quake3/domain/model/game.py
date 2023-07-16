@@ -88,3 +88,13 @@ class Game:
 
     def end_game(self, ended_match: str) -> None:
         self.ended_match = ended_match
+
+    def to_dict(self) -> dict:
+        return {
+            "total_kills": self.total_kills,
+            "started_match": self.started_match,
+            "ended_match": self.ended_match,
+            "settings": self.settings.to_dict(),
+            "teams": self.teams.to_dict(),
+            "kills_by_means": self.kill_by_means,
+        }

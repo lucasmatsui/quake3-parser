@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from app.quake3.domain.model.game import Game
 from app.quake3.infra.q3_connect_player_parser import Q3ConnectPlayerParser
 from app.quake3.infra.q3_create_game_parser import Q3CreateGameParser
@@ -7,6 +7,9 @@ from app.quake3.infra.q3_event_checker_parser import Q3EventCheckerParser
 
 
 class Q3Parser:
+    games: List[Game]
+    current_game: Optional[str]
+
     def __init__(self) -> None:
         self.games = []
         self.current_game = None
@@ -35,5 +38,5 @@ class Q3Parser:
         self.games.append(self.current_game)
         self.current_game = None
 
-    def game_list(self) -> List[Game]:
+    def get_games(self) -> List[Game]:
         return self.games

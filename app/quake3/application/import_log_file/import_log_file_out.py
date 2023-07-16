@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Dict
 
 
 class GameSettings(BaseModel):
-    map: str
+    mapname: str
     mode: str
     time_limit: int
     frag_limit: int
@@ -21,8 +21,6 @@ class Player(BaseModel):
     nickname: str
     character: str
     health: int
-    kills: int
-    deaths: int
     history_of_weapons: List[str]
 
 
@@ -34,11 +32,12 @@ class GameTeams(BaseModel):
 
 
 class GameModel(BaseModel):
+    total_kills: int
+    started_match: str
+    ended_match: str
     settings: GameSettings
     teams: GameTeams
-    total_kills: int
-    match_duration: int
-    kills_by_means: List[str]
+    kills_by_means: Dict[str, int]
 
 
 class ImportLogFileOut(BaseModel):
