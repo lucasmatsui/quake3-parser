@@ -8,7 +8,7 @@ from app.quake3.infra.q3_event_checker_parser import Q3EventCheckerParser
 
 class Q3Parser:
     games: List[Game]
-    current_game: Optional[str]
+    current_game: Optional[Game]
 
     def __init__(self) -> None:
         self.games = []
