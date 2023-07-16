@@ -66,7 +66,7 @@ build-backend = "poetry.core.masonry.api"
 exclude_dirs = ["venv", ".venv", "env", ".env", "scripts"]
 
 [tool.pylint.format]
-max-line-length = 100
+max-line-length = 90
 ignore-docstrings = false
 disable = 'C0114, E0401, R0903, E0611, C0115, E0213, C0116'
 ignore = 'migrations'

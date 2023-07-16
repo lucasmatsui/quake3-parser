@@ -1,3 +1,4 @@
+import os
 import psutil
 import time
 from fastapi import APIRouter
@@ -5,6 +6,7 @@ from app.quake3.infra.q3_parser import Q3Parser
 from app.shared.services.default_presenter import DefaultPresenter
 
 from app.quake3.application.import_log_file.import_log_file import ImportLogFile
+from app.quake3.application.import_log_file.import_log_file_in import ImportLogFileIn
 
 router = APIRouter()
 router_name = "Quake 3 Parser"
@@ -21,7 +23,11 @@ async def import_log_file():
         start_time = time.time()
         start_memory = psutil.virtual_memory().used
 
-        output = ImportLogFile(Q3Parser()).exec()
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, "../logs/qgames.log")
+
+        usecase = ImportLogFile(Q3Parser())
+        output = usecase.exec(ImportLogFileIn(file_path=file_path))
 
         end_time = time.time()
         end_memory = psutil.virtual_memory().used

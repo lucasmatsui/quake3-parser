@@ -242,10 +242,8 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
-
 # Flask stuff:
 instance/
 .webassets-cache
@@ -348,7 +346,6 @@ tags
 [._]*.un~
 
 # Developer localhost
-logs
 data
 
 # docker tmp files
