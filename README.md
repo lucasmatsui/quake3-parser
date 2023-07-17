@@ -30,7 +30,7 @@ To be able to start development on quake3-parser make sure that you have the fol
 - Git
 </details>
 
-<details>
+<details open>
 <summary>
 Setup
 </summary> <br />
@@ -103,7 +103,7 @@ tests/domain/model/game_test.py::test_end_game PASSED
 ```
 </details>
 
-<details>
+<details open>
 <summary>
 Features
 </summary> <br />
