@@ -45,7 +45,7 @@ git clone https://github.com/lucasmatsui/quack3-parser.git && cd quack3-parser
 docker compose build --no-cache
 ```
 
-3. Run run container:
+3. Run container:
 ```shell
 docker compose compose up -d
 ```
